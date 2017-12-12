@@ -1,0 +1,23 @@
+New offer answer
+[BODY]
+Post n° : $id 
+Job démarche : $job 
+Type : $r_type
+Date : $create_date
+Civilité : $title
+Nom : $name 
+Post-nom : $post_name
+Prénom : $christ_name 
+Phone : $phone 
+Email : $email
+Etat Civil : $family_stat 
+Date de naissance : $birth 
+Province de résidence : $r_town 
+Motivation : $motivation
+Catégorie de formation : $r_formation 
+Langues parlées : $c_lang
+Diplôme : $r_diplome 
+Ecole Université : $r_univ 
+Autres formations : $r_formation
+Informatique : $it
+

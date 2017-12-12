@@ -1,0 +1,1280 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+table.mceLayout, table.mceLayout iframe {
+    background: #fff !important;
+    width: 100% !important;
+    height: 400px !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* body > div > div {
+	border:1px solid black;
+}*/
+
+body {
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+body * {
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+a {
+    color: rgb(0, 136, 204);
+    text-decoration: none;
+}
+
+p {
+    margin: 0px 0px 10px;
+}
+
+[class^='icon-'] {
+    background-position: 14px 14px;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    display: inline-block;
+    background-image: url("./img/glyphicons-halflings.png");
+    background-repeat: no-repeat;
+}
+
+.icon-cog {
+    background-position: -432px 0px;
+}
+
+.icon-signal {
+    background-position: -408px 0px;
+}
+
+.icon-bullhorn {
+    background-position: -24px -144px;
+}
+
+.icon-briefcase {
+    background-position: -432px -144px;
+}
+
+.icon-wrench {
+    background-position: -360px -144px;
+}
+
+.icon-edit {
+    background-position: -96px -72px;
+}
+
+.icon-trash {
+    background-position: -456px 0px;
+}
+
+.icon-user {
+    background-position: -168px 0px;
+}
+
+.icon-plus {
+    background-position: -408px -96px;
+}
+
+#content {
+    display: block;
+    width: 100%;
+}
+
+#login_page {
+    height: auto;
+    background-image: linear-gradient(#fcfafa, #fcfafa 50%, #fcfafa);
+    background-repeat: no-repeat;
+    background-color: #fcfafa;
+
+    /*	box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
+}
+
+#login_form {
+    padding: 19px 13px 13px;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.95);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 19px 13px 13px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#login_logo {
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+input {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+textarea, input[type='search'], input[type='text'], input[type='password'], .dbo_date {
+    color: rgb(85, 85, 85);
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    padding: 4px 6px;
+
+    border: 1px solid rgb(204, 204, 204);
+    transition: border 0.2s linear, box-shadow 0.2s linear;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    box-sizing: content-box;
+}
+
+input[type='submit'], input[type='button'], .btn, button {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187) rgb(187, 187, 187) rgb(162, 162, 162);
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-align: center;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    /* box-shadow: inset 0px 1px 0px rgba(255,255,255,0.2), 0px 1px 2px rgba(0,0,0,0.05); */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
+    background-repeat: repeat-x;
+    background-color: rgb(245, 245, 245);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+
+    cursor: pointer;
+    -webkit-appearance: button;
+    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+
+.btn {
+    -webkit-appearance: initial;
+}
+
+#login_form input[type="text"], #login_form input[type="password"] {
+    font-size: 12px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+    width: 280px;
+}
+
+#header {
+    margin-bottom: 25px;
+    background-color: #fcfcfc;
+    background-color: #fcfafa;
+    background-image: linear-gradient(#fcfafa, #fcfafa 70%, #fcfafa);
+    background-repeat: no-repeat;
+    border-top: 4px solid #fcfafa;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+div.menu ul, div.menu li {
+    list-style: none;
+}
+
+.mmenu {
+    position: relative;
+}
+
+.submenuwrap {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    border: 1px solid rgb(212, 212, 212);
+    background-color: #fff;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-image: linear-gradient(rgb(242, 242, 242), rgb(255, 255, 255));
+}
+
+.mfst .submenuwrap {
+    left: -1px;
+}
+
+.mmenu:hover > .submenuwrap {
+    display: block;
+}
+
+.mmenu:hover > a, .sub_menu:hover > a {
+    text-shadow: 3px 3px 3px #bbb;
+}
+
+.mmenu.have_sub {
+    border-bottom: 2px solid brown;
+    height: 38px;
+}
+
+.mmenu.have_sub:hover {
+    border-bottom: none;
+    height: 40px;
+}
+
+.sub_menu {
+    border-bottom: 1px solid rgb(212, 212, 212);
+    border-right: 1px solid rgb(212, 212, 212);
+    white-space: nowrap;
+}
+
+.mmenu.asub {
+    border-bottom: 2px solid blue;
+}
+
+.mmenu.asub > a {
+    padding-bottom: 8px;
+}
+
+.hwrap {
+    margin: 0 auto;
+    height: 100%;
+}
+
+#header, #footer {
+    min-width: 940px;
+}
+
+.wrap_width {
+    min-width: 940px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+#main_logo {
+    margin-top: 10px;
+    min-width: 245px;
+    min-height: 58px;
+    width: 245px;
+    height: 58px;
+}
+
+div.menu > ul > li {
+    float: left;
+}
+
+div.menu {
+    border-radius: 4px;
+    border: 1px solid rgb(212, 212, 212);
+    padding-right: 20px;
+    padding-left: 0px;
+    min-height: 40px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.065);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(242, 242, 242));
+    background-repeat: repeat-x;
+    background-color: rgb(250, 250, 250);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+
+}
+
+div.menu {
+    width: 670px;
+    float: right;
+    margin-top: 14px;
+    padding-right: 4px;
+}
+
+/*div.menu > ul > li > a {*/
+div.menu > ul li > a {
+    display: block;
+    padding: 10px 15px;
+    color: rgb(119, 119, 119);
+    text-decoration: none;
+    float: none;
+    text-shadow: 0px 1px 0px #fff;
+}
+
+div.menu > ul > li.active > a,
+div.menu > ul li.sub_act > a {
+    color: rgb(85, 85, 85);
+    text-decoration: none;
+    box-shadow: inset 0px 3px 8px rgba(0, 0, 0, 0.125);
+    background-color: rgb(229, 229, 229);
+    -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+
+.btn-group > .btn {
+    border-radius: 0px;
+    position: relative;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    /*	height:32px;*/
+}
+
+.btn-group {
+    font-size: 0px;
+    vertical-align: middle;
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+}
+
+.btn-group > :first-child.btn {
+    margin-left: 0px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-bottomleft: 4px;
+}
+
+.btn-group > .dropdown-toggle {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-bottomright: 4px;
+}
+
+.caret {
+    width: 0px;
+    height: 0px;
+    vertical-align: top;
+    border-top-color: rgb(0, 0, 0);
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-left-width: 4px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    display: inline-block;
+    content: "";
+
+}
+
+.up_caret {
+    width: 0px;
+    height: 0px;
+    vertical-align: top;
+    border-top-color: rgb(0, 0, 0);
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+    border-left-width: 4px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    display: inline-block;
+    content: "";
+
+}
+
+.btn .caret,
+.btn .up_caret {
+    margin-top: 8px;
+    margin-left: 0px;
+}
+
+.btn-group > .btn + .btn {
+    margin-left: -1px;
+}
+
+div.menu > .btn-group {
+    margin-top: 4px;
+    float: right;
+}
+
+.dropdown-menu {
+    list-style: none;
+    margin: 2px 0px 0px;
+    padding: 5px 0px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    left: auto;
+    right: -60%;
+    top: 100%;
+    float: left;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    min-width: 160px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+}
+
+/*.dropdown-toggle:hover .dropdown-menu {
+	display:block;
+}
+*/
+select {
+    padding: 4px 6px;
+    border-radius: 4px;
+    /*  height: 20px;*/
+    color: rgb(85, 85, 85);
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+
+    line-height: 30px;
+
+    border: 1px solid rgb(204, 204, 204);
+    min-width: 176px;
+    background-color: rgb(255, 255, 255);
+}
+
+.dataTables_length select {
+    width: 65px;
+    height: 30px;
+    min-width: auto;
+}
+
+.dataTables_filter label input {
+    width: 200px;
+    padding-right: 26px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+}
+
+.dataTables_filter::after {
+    background-position: -48px 0px;
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
+    right: 19px;
+    /* margin-left: 330px;*/
+    display: inline-block;
+    position: relative;
+    z-index: 900;
+    content: "";
+    background-image: url("./img/glyphicons-halflings.png");
+}
+
+.dbo_table_wrap {
+    display: inline-block;
+    width: 100%;
+}
+
+.dbo_datatable_hidden {
+    display: none;
+}
+
+.dbo_datatable.dataTable {
+    border-radius: 0px;
+    border-top-color: rgb(204, 204, 204);
+    border-right-color: rgb(204, 204, 204);
+    border-left-color: rgb(204, 204, 204);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-left-style: solid;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    border-bottom: none;
+    box-sizing: border-box;
+    border-collapse: collapse !important;
+    width: 100% !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none;
+}
+
+.dbo_datatable.dataTable th, .dbo_datatable.dataTable td {
+    text-align: left;
+}
+
+.dbo_datatable.dataTable thead th {
+    white-space: nowrap;
+    padding: 5px 8px 4px 8px;
+    color: rgb(51, 51, 51);
+    font-style: normal;
+    border-bottom-color: rgb(187, 187, 187);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    cursor: pointer;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(242, 242, 242));
+    background-repeat: repeat-x;
+    background-color: rgb(250, 250, 250);
+    font-weight: bold;
+}
+
+.dbo_datatable.dataTable thead th span {
+    margin-right: 8px;
+}
+
+.dbo_datatable.dataTable thead th.sorting_asc {
+    outline: 0px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    background-image: none;
+    background-color: rgb(230, 230, 230);
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.dbo_datatable.dataTable thead th.sorting_desc {
+    outline: 0px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    background-image: none;
+    background-color: rgb(230, 230, 230);
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.dbo_datatable.dataTable thead:first-child tr:first-child th {
+    border-top-color: currentColor;
+    border-top-width: 0px;
+    border-top-style: none;
+}
+
+.dbo_datatable.dataTable thead th::before {
+    border-color: rgb(51, 51, 51) transparent;
+    margin-right: -4px;
+    margin-left: -4px;
+    float: right;
+}
+
+.dbo_datatable.dataTable thead th.sorting_asc::before {
+
+    margin-top: 7px;
+    content: "";
+
+    border-width: 0px 4px 4px;
+    border-style: none solid solid;
+    border-color: currentColor transparent rgb(51, 51, 51);
+    visibility: visible;
+    opacity: 0.6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.dbo_datatable.dataTable thead th.sorting_desc::before {
+    margin-top: 7px;
+    content: "";
+
+    border-width: 4px 4px 0px;
+    border-style: solid solid none;
+    border-color: rgb(51, 51, 51) transparent currentColor;
+    visibility: visible;
+    opacity: 0.6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.dbo_datatable.dataTable tbody td {
+    padding: 8px;
+    text-align: left;
+    line-height: 20px;
+    vertical-align: top;
+    border-top-color: rgb(221, 221, 221);
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+.dataTables_wrapper .dataTables_info {
+    float: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187);
+    padding: 5px 10px 4px;
+    border-radius: 0px 0px 4px 4px;
+    color: rgb(51, 51, 51);
+    font-style: normal;
+    margin-top: 0px;
+    margin-bottom: 6px;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.05);
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(242, 242, 242));
+    background-repeat: repeat-x;
+    background-color: rgb(250, 250, 250);
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    float: left;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border-width: 1px 1px 1px 0px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+    padding: 4px 12px;
+    border-radius: 0px;
+    text-align: center;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    /* box-shadow: inset 0px 1px 0px rgba(255,255,255,0.2), 0px 1px 2px rgba(0,0,0,0.05); */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
+    background-repeat: repeat-x;
+    background-color: rgb(245, 245, 245);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.dataTables_wrapper .dataTables_paginate .first.paginate_button,
+.dataTables_wrapper .dataTables_paginate .first.paginate_button:hover {
+    border-radius: 5px 0px 0px 5px;
+    border-left-width: 1px;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .last.paginate_button,
+.dataTables_wrapper .dataTables_paginate .last.paginate_button:hover {
+    border-radius: 0px 5px 5px 0px;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border-width: 1px 1px 1px 0px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+    padding: 4px 12px;
+    border-radius: 0px;
+    text-align: center;
+    color: rgb(51, 51, 51);
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    /* box-shadow: inset 0px 1px 0px rgba(255,255,255,0.2), 0px 1px 2px rgba(0,0,0,0.05); */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
+    background-repeat: repeat-x;
+    background-color: rgb(245, 245, 245);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+
+    outline: 0px;
+    cursor: default;
+    opacity: 0.65;
+    /* box-shadow: inset 0px 2px 4px rgba(0,0,0,0.15), 0px 1px 2px rgba(0,0,0,0.05); */
+    background-image: none;
+    background-color: rgb(230, 230, 230);
+
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-position: 0px -15px;
+    transition: background-position 0.1s linear;
+    color: rgb(51, 51, 51) !important;
+    text-decoration: none;
+    background: rgb(230, 230, 230);
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_active:hover {
+    background: rgb(230, 230, 230);
+    background-position: 0px -15px;
+    transition: background-position 0.1s linear;
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+    outline: rgb(51, 51, 51) dotted thin;
+    outline-offset: -2px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_active:focus {
+    outline: rgb(51, 51, 51) dotted thin;
+    outline-offset: -2px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+    color: #fafafa !important;
+    text-shadow: -1px -1px #999;
+    cursor: auto;
+}
+
+.btn-mini {
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10.5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.dbo_datatable.dataTable td.dbo_list_acts, .dbo_datatable.dataTable th.dbo_list_acts {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.dbo_datatable.dataTable td.dbo_list_acts form {
+    display: inline;
+}
+
+.dbo_add_new {
+    float: right;
+    position: relative;
+    z-index: 1000;
+}
+
+.dbo_add_new.dbo_top {
+    /*	top:30px;
+        margin-top:-30px;*/
+    margin-left: 5px;
+}
+
+form.sf_filters {
+    float: left;
+    margin-top: -40px;
+    position: relative;
+    top: 40px;
+    left: 310px;
+    z-index: 1000;
+}
+
+form.sf_filters select {
+    height: 30px;
+    width: 200px;
+}
+
+form.sf_filters input, form.dbo_tbl_top_form input {
+    margin-bottom: 10px;
+}
+
+.dbo_add_new.dbo_bottom {
+    top: -31px;
+    margin-left: 5px;
+}
+
+.clink_btn {
+    position: relative;
+    float: right;
+    margin-left: 5px;
+    z-index: 10000;
+}
+
+.clink_btn.dbo_top {
+    top: 33px;
+    margin-top: -4px;
+}
+
+.clink_btn.dbo_bottom {
+    top: -31px;
+}
+
+.btn-primary, .dbo_add_new, input.dbo_submit {
+    background-color: #006dcc;
+    background-image: linear-gradient(#0088cc, #0044cc);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+hr.footerline {
+    border-color: #eeeeee currentcolor #ffffff;
+    border-style: solid none;
+    border-width: 1px 0;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.legend {
+    border-color: currentcolor currentcolor #e5e5e5;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    color: #333333;
+    display: block;
+    font-size: 21px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.dbo_fields_tbl {
+    /*	width:100%;*/
+}
+
+.dbo_fields_tbl_ro {
+    width: 100%;
+}
+
+.dbo_fields_tbl .dbo_data_td input,
+.dbo_fields_tbl .dbo_data_td textarea {
+    width: 90%;
+}
+
+.dbo_fields_tbl .dbo_data_td input[size],
+.dbo_fields_tbl .dbo_data_td textarea[cols] {
+    width: auto;
+}
+
+table {
+    border-collapse: collapse
+}
+
+.dbo_edit_wrap {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.dbo_offpage_table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.dbo_offpage_table .dbo_fields_td {
+    vertical-align: top;
+    padding: 8px;
+}
+
+.dbo_title_td, .dbo_data_td {
+    height: 40px;
+}
+
+.dbo_roview.dbo_title_td, .dbo_roview.dbo_data_td {
+    height: 20px;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.dbo_roview {
+    width: 100%;
+}
+
+.dbo_data_td input, .dbo_data_td select, .dbo_data_td textarea {
+    margin: 0px;
+}
+
+.dbo_title_td {
+    text-align: right;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+
+.dbo_non_flat {
+    height: 75px;
+    vertical-align: top;
+}
+
+input[disabled], select[disabled], textarea[disabled] {
+    cursor: not-allowed;
+    background-color: rgb(238, 238, 238);
+}
+
+.dbo_field_val {
+    font-weight: bold;
+}
+
+pre {
+    white-space: pre; /* CSS 2.0 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3.0 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -hp-pre-wrap; /* HP Printers */
+    word-wrap: break-word; /* IE 5+ */
+}
+
+.wHumanMsg {
+    background-color: #888;
+    box-shadow: 3px 3px 6px #000
+}
+
+.wHumanMsg span {
+    color: #eee;
+}
+
+.wHumanMsg-hideButton {
+    color: #fff;
+    font-size: 16px;
+}
+
+.top_tbl_pos_div {
+    height: 20px;
+    padding: 4px 0;
+}
+
+.nav-tabs {
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.nav {
+    list-style: none;
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
+
+.nav-tabs::before {
+    line-height: 0;
+    display: table;
+    content: "";
+}
+
+.nav-tabs::after {
+    clear: both;
+    line-height: 0;
+    display: table;
+    content: "";
+}
+
+.nav-tabs > li {
+    margin-bottom: -1px;
+    float: left;
+}
+
+.nav > li > a {
+    display: block;
+}
+
+.nav-tabs > li > a {
+    border-radius: 4px 4px 0px 0px;
+    border: 1px solid transparent;
+    line-height: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    line-height: 14px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 2px;
+}
+
+.nav-tabs > .active > a {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) transparent;
+    color: rgb(85, 85, 85);
+    cursor: default;
+    background-color: rgb(255, 255, 255);
+}
+
+.chb_opt input {
+    width: auto !important;
+}
+
+.chb_opt {
+    white-space: nowrap;
+    display: block;
+    text-align: left;
+}
+
+.dbo_datatable.dataTable tbody td.dbo_numeric_col, th.dbo_numeric_col span {
+    text-align: right;
+}
+
+.dbo_datatable.dataTable tbody td {
+    padding-right: 16px;
+
+}
+
+.readonly_textarea {
+    width: 99%;
+    display: inline-block;
+
+}
+
+.readonly_textarea pre {
+    font-size: 11px;
+}
+
+.dbo_show_logic_hidden {
+    display: none;
+}
+
+.dbo_data_td label.error {
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.compl_icon {
+    width: 25px;
+    height: 25px;
+    display: inline;
+}
+
+.fa_close {
+    width: 20px;
+    height: 20px;
+    display: inline;
+    cursor: pointer;
+}
+
+.fa_form {
+}
+
+.big_text, .big_text * {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+@media print {
+    * {
+        background: white !important;
+        /*		color:black !important;*/
+        box-shadow: none !important;
+
+    }
+
+    a {
+        color: black !important;
+
+    }
+
+    .menu, .dataTables_length, #dbo_datatable_filter, button, input[type=button], #dbo_datatable_paginate {
+        visibility: hidden !important;
+    }
+
+    .dataTables_length, #dbo_datatable_filter, #dbo_datatable_paginate, .footerline {
+        display: none !important;
+    }
+}
+
+#dbo_datatable_wrapper {
+    display: inline-block;
+    width: 100% !important;
+}
+
+.main_photo {
+    width: 301px;
+    height: auto;
+    top: 0px;
+    left: 0px;
+}
+
+.photo_wrap {
+    white-space: normal;
+
+}
+
+.list_photo {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-right: 7px;
+}
+
+.list_photo.last {
+    margin-right: 0px;
+}
+
+.main_photo_wrap {
+    position: relative;
+    width: 301px;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.main_photo_wrap:hover {
+    overflow: visible;
+}
+
+form.ext_sort {
+    float: left;
+    margin-top: -40px;
+    position: relative;
+    top: 40px;
+    left: 582px;
+    z-index: 1000;
+}
+
+form.ext_sort select {
+    width: 150px;
+    min-width: 150px;
+    height: 30px;
+}
+
+.abs_photo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.small_wrap {
+    height: 75px;
+}
+
+.dbo_table_acts_wrap {
+    margin-top: -30px;
+    position: relative;
+    top: 30px;
+    left: 0px;
+    z-index: 1000;
+
+}
+
+.tbl_menu_btn.top_acts {
+    float: right;
+    position: relative;
+    margin-left: 5px;
+    /*    margin-top: -40px;
+        top: 40px;
+        left: 0px;
+        z-index: 1000;*/
+}
+
+.tbl_menu_btn.bot_acts {
+    top: -31px;
+    position: relative;
+    float: right;
+    z-index: 1000;
+}
+
+.acts_menu_wrap {
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0px;
+    z-index: 5000;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid rgb(212, 212, 212);
+
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.065);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    margin-top: -2px;
+    border-top-right-radius: 0px;
+}
+
+.bot_acts .acts_menu_wrap {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: -2px;
+    margin-top: 0;
+}
+
+.acts_menu_wrap .btn, .acts_menu_wrap button {
+    white-space: nowrap;
+}
+
+.acts_menu_wrap .dbo_add_new,
+.acts_menu_wrap .clink_btn {
+    top: auto;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+/*.tbl_menu_btn:hover .acts_menu_wrap {
+	display:block;
+}
+*/
+.tbl_menu_btn form {
+    float: none;
+    margin: 0px;
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    white-space: nowrap;
+}
+
+.tbl_menu_btn.tbl_menu_btn_2nd {
+    /*	margin-right:90px;
+        float:left;
+        left:313px;*/
+}
+
+.drop_wrap {
+    display: none;
+}
+
+.drop_wrap.dropped {
+    display: block;
+}
+
+.dbo_wrap_words {
+    white-space: normal !important;
+}
+
+.dbo_table_acts_wrap {
+    min-height: 30px;
+    display: inline-block;
+    float: right;
+}

@@ -1,0 +1,31 @@
+<FilesMatch "\.tpl$|\.tpl\.php$|\.inc$|\.inc\.php$|\.class\.php$|ini\.php$|[-.]old[-.]|init\.php$|tables\.php$|[_.]funcs\.php$|[_.]translate\.php$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+Options +FollowSymLinks
+Options -Indexes
+ServerSignature Off
+RewriteEngine On
+
+#IF the URI contains a "http:"
+RewriteCond %{QUERY_STRING} http\: [OR]
+#OR if the URI contains a "["
+RewriteCond %{QUERY_STRING} \[ [OR]
+#OR if the URI contains a "]"
+RewriteCond %{QUERY_STRING} \] [OR]
+#OR if the URI contains a "<script>"
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+#OR script trying to set a PHP GLOBALS variable via URL
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+#OR any script trying to modify a _REQUEST variable via URL
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) 
+RewriteRule ^.*$ - [F,L] 
+# END Filtering
+
+# Set assume mod_rewrite to true in config.php 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?slug_req=$1 [QSA]
+
+

@@ -1,0 +1,25 @@
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+.ui-dialog-titlebar {
+    background: #bb133e !important;
+}
+
+.btn_disabled * {
+    color: #ccc !important;
+}
+
+.btn * {
+    color: #1c94c4;
+}
+
+.btn_cancel * {
+    color: #bb133e;
+}
+
+.ui-widget-header * {
+    color: #fff;
+    font-weight: bold;
+}
+

@@ -1,0 +1,287 @@
+table.mceLayout, table.mceLayout iframe {
+    background: #fff !important;
+    width: 100% !important;
+    height: 400px !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+* {
+    font-family: "Arial", "Helvetica", "sans-serif";
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hidden {
+    display: none;
+}
+
+textarea, input, select {
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    padding: 3px;
+    margin: 1px;
+}
+
+input[type="button"], input[type="submit"] {
+    border-radius: 3px;
+    border-color: #BBBBBB;
+    color: #464646;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover {
+    border-color: #666666;
+    color: #000;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="file"], input[type="button"], input[type="submit"], input[type="reset"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="url"], select {
+    background-color: #FFFFFF;
+}
+
+.admin_content {
+    width: 1000px;
+    float: left;
+    height: inherit;
+}
+
+.admin_menu_wrap {
+    width: 150px;
+    float: left;
+    height: inherit;
+    background: url("./img/menu-shadow.png") #ECECEC repeat-y right top;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 0px;
+    border-right-width: 1px;
+}
+
+.admin_main_menu, .admin_menu_sub, .admin_menu_sub_li {
+    list-style: none;
+}
+
+.admin_main_menu_li {
+    list-style: none;
+    border-style: solid;
+    border-width: 1px 0;
+    min-height: 29px;
+    position: relative;
+    border-bottom-color: #DFDFDF;
+    border-top-color: #FFFFFF;
+    padding-left: 10px;
+
+}
+
+.admin_main_menu_li > a {
+    font-weight: bold;
+    line-height: 18px;
+    text-decoration: none;
+    padding: 5px;
+    padding-left: 22px;
+    display: inline-block;
+
+    font-size: 13px;
+    color: #21759B;
+    background: url("./img/generic.png") no-repeat 1px center;
+}
+
+.admin_menu_wrap h3 {
+    color: #444444;
+    font-size: 15px;
+    padding: 5px;
+    text-align: center;
+}
+
+.admin_menu_sub_wrap {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    background: #fff;
+    min-width: 100px;
+    border: 1px solid #DFDFDF;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.admin_main_menu_li:hover > a {
+    color: #D54E21;
+}
+
+.admin_main_menu_li:hover {
+    background-color: #E4E4E4;
+}
+
+.admin_main_menu_li:hover > .admin_menu_sub_wrap {
+    display: block;
+}
+
+.admin_menu_sub_li a {
+    line-height: 18px;
+    text-decoration: none;
+    color: #21759B;
+    padding: 3px;
+    padding-left: 15px;
+    display: inline-block;
+}
+
+.admin_menu_sub_li:hover {
+    background-color: #EAF2FA;
+}
+
+.admin_main {
+    width: 800px;
+    float: left;
+    padding: 10px;
+}
+
+table.dbo_list {
+
+    background-color: #F9F9F9;
+    border-color: #DFDFDF;
+    border-spacing: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+}
+
+.dbo_list td, .dbo_list th {
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px 1px;
+
+    border-bottom-color: #DFDFDF;
+    border-top-color: #FFFFFF;
+
+    border-right-color: #DFDFDF;
+    border-left-color: #FFFFFF;
+}
+
+.dbo_list th {
+    font-weight: normal;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 1.3em;
+    padding: 7px 7px 8px;
+    text-align: left;
+}
+
+.dbo_list td {
+    color: #555555;
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: top;
+    line-height: inherit;
+}
+
+table.dbo_list * {
+    word-wrap: break-word;
+}
+
+.dbo_list thead tr th, .dbo_list tfoot tr th {
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top, #F9F9F9, #ECECEC);
+}
+
+.dbo_list thead th:first-of-type {
+    border-top-left-radius: 3px;
+}
+
+.dbo_list thead th:last-of-type {
+    border-top-right-radius: 3px;
+}
+
+.dbo_list tfoot th:first-of-type {
+    border-bottom-left-radius: 3px;
+}
+
+.dbo_list tfoot th:last-of-type {
+    border-bottom-right-radius: 3px;
+}
+
+.dbo_list_offpage .dbo_ctrl {
+    width: 60px;
+}
+
+table.dbo_edit_wrap, table.dbo_edit, table.dbo_edit table.mceLayout {
+    width: 100%;
+}
+
+.dbo_e_edit_ctrl {
+    width: 60px;
+}
+
+table.dbo_edit {
+    background-color: #F9F9F9;
+    border-color: #DFDFDF;
+    border-spacing: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 3px 3px 3px 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+}
+
+table.dbo_edit .dbo_offpage_td {
+    background-image: -moz-linear-gradient(center top, #F9F9F9, #ECECEC);
+    border-bottom-color: #DFDFDF;
+    border-top-color: #FFFFFF;
+    border-width: 1px 0;
+    border-style: solid;
+    padding: 3px;
+}
+
+table.dbo_edit .dbo_title_td {
+    width: 60px;
+    background-color: #F1F1F1;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.3em;
+    padding: 7px 7px 8px;
+    text-align: left;
+
+    border-width: 1px;
+    border-right-color: #DFDFDF;
+    border-left-color: #FFFFFF;
+
+}
+
+table.dbo_edit .dbo_data_td {
+    border-left-color: #FFFFFF;
+    border-left-width: 1px;
+}
+
+table.dbo_edit .dbo_title_td:first-of-type {
+    border-top-left-radius: 3px;
+}
+
+table.dbo_edit .dbo_title_td:last-of-type {
+    border-bottom-left-radius: 3px;
+}
+
+.hr_hdr {
+    width: 999px;
+    height: 174px;
+    margin: 0 auto;
+    background: url("./img/header_admin_jobs.jpg") no-repeat left top;
+}
+
+.ans_ed_tbl td {
+    padding: 5px;
+}
+
+.ans_ed_tbl td input[type="text"], .ans_ed_tbl td textarea {
+    width: 90%;
+}
+
+option {
+    padding: 0px 4px;
+}
