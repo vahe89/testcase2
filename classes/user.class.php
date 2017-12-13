@@ -654,7 +654,18 @@ class User extends Admin
 		$this->LookAtVar("emails_imp_exp",true,true,true);
 		return true;
 	}
-
+//    function do_mngr(){
+//        if(!$this->isLogged)
+//            return false;
+//        $this->LookAtVar("emails_imp_exp",true,true,true);
+//        return true;
+//    }
+    function do_cls(){
+        if(!$this->isLogged)
+            return false;
+        $this->LookAtVar("emails_imp_exp",true,true,true);
+        return true;
+    }
 	function set_missed_callbacks(){
 		$q="select * from SEOX3_Client__c where Next_Call_Back__c<date_sub(NOW(),interval 2 hour)";
 		while($this->db->qnext($q,"MCBD")){

@@ -3501,6 +3501,7 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 			$row = $this->cD;
 		$cV = $this->gO('cV');
 		$ctls = $cV['acts'];
+
 		if ($fnkk == '_acts_' && is_array($fn))
 			$ctls = $fn;
 
@@ -3543,6 +3544,7 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 			$ret.="</form>";
 
 			break;
+
 		case "list_ctl_u":
 			$href=aurl("/{$this->obj_slug}/{$row[$this->slug_field]}/e".($ru!=false?"?rr_url={$ru}":""));
 			$ret="<a class='btn btn-mini {$bclass}' href='$href'><i class='icon-edit'></i> Edit</a>";

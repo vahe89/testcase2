@@ -38,11 +38,31 @@ $objviews = array(
 			"sel_on" => array(
 					"localAdmin"=>true,"localLogin"=>'admin'
           ),
-			"defpage" => array('type' => "url", "_url" => aurl("/mails_import_export")),
+			"defpage" => array('type' => "obj", "obj" => "mngr"),
 			"menu" => array(
-				"Email export" => array("_url" => aurl("/mails_import_export"), "_html" => "<i class='icon-briefcase'></i> Emails Export"),
+				//"Email export" => array("_url" => aurl("/mails_import_export"), "_html" => "<i class='icon-briefcase'></i> Emails Export"),
+                "Managers" => array("_obj" => "mngr","_url" => aurl("/mngr"), "_html" => "<i class='icon-briefcase'></i> Managers"),
+          //      "Client" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Clients"),
 				),
+        "objs"=>array(
+            "mngr" => array(
+                'no_user_filter_allowed' => true,
+                "sLabel"=>"Manager",
+				"acts" => array("i","u","d","v"),
+                "list" => array('_idc_','_acts_','name','status','email','username'),
+//                "edit"=>array(
+//                    "_l"=>array("r1"=>array("c1"=>array("Name","Email"))),
+//                ),
+            ),
+//            "cls" => array(
+//                'no_user_filter_allowed' => true,
+//                "sLabel"=>"RC Call Log",
+////					"acts" => array("i","u"),
+//                "list" => array('call_time','duration','sr_sf_id','sr_phone','lead_sf_id','lead_phone','is_inbound'),
+//            ),
+        ),
 			),
+
     "SLA" => array(
 			"sel_on" => array(
             "_regexp0" => array("Brand_App_Access__c" => "#(^|;)sla(;|$)#i"),

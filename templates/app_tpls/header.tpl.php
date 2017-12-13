@@ -16,6 +16,7 @@
                     global $current_url;
 		$mfst = true;
 		$defurl=false;
+
 		if(isset($this->v['defpage']) && is_array($this->v['defpage'])){
 			if(isset($this->v['defpage']['url']))
 				$defurl=$this->v['defpage']['url'];

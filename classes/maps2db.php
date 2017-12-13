@@ -15,7 +15,7 @@ mysql_query("SET character_set_results = '$charset'");
 mysql_query("SET character_set_server = '$charset'");
 mysql_query("SET character_set_system = '$charset'");
 
-$run=false;
+$run=true;
 if(isset($_SERVER['argv'][1]) && strtolower($_SERVER['argv'][1])=='run')
 	$run=true;
 

@@ -979,7 +979,9 @@ class Admin
 			}
 
 			if ($this->u == false || (isset($this->u['deflogin']) && $this->u['deflogin'] == true)) {
+
 				$lr=$this->deflogin();
+
 				if($this->isLogged || $this->isAdmin){
 					if($this->selUserView(array('localAdmin'=>true,'localLogin'=>$this->userCreds['ulogin']))){
 						$this->set('curUsr', array('Name' => $this->userCreds['uname']));
@@ -1079,6 +1081,7 @@ class Admin
 		function deflogin(){
 			if($this->isLogged || $this->isAdmin)
 				return false;
+
 			if($this->getConfig("admin_login")!="" && $this->getConfig("admin_pass")!="" && $this->getConfig("admin_login")==$_REQUEST['login'] && $this->getConfig("admin_pass")==$_REQUEST['pass'])
 			{
 				$this->set('isAdmin',true);

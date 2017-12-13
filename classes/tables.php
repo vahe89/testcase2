@@ -147,7 +147,34 @@ $dbobjs = array(
         "def_lang" => $def_lang,
         "langs" => $glangs,
     ),
-		
+    "mngr" => array(
+        "table" => "mngr",
+        "auto_db"=>true,
+        "fctrls" => array(
+            "name" => array("t" => "Name","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''"),
+            "status" => array("t" => "Status","c"=>"select","auto_db_type"=>"enum('New','Active','Terminated')","auto_db_def"=>"NOT NULL DEFAULT 'New'"),
+            "email" => array("t" => "Email","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''","auto_db_key"=>true),
+            "username" => array("t" => "Username","c"=>"text","auto_db_type"=>"varchar(50)","auto_db_def"=>"NOT NULL DEFAULT ''","auto_db_key"=>true),
+            "password" => array("t" => "Password","c"=>"text","auto_db_type"=>"varchar(250)","auto_db_def"=>"NOT NULL DEFAULT ''"),
+		),
+        "def_lang" => $def_lang,
+        "langs" => $glangs,
+    ),
+    "cls" => array(
+        "table" => "cls",
+        "auto_db"=>true,
+        "fctrls" => array(
+            "mngrid" => array("t" => "Manager ID","c"=>"string","auto_db_type"=>"bigint(11)","auto_db_def"=>"NOT NULL","auto_db_key"=>true),
+            "name" => array("t" => "Name","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''"),
+            "address" => array("t" => "address","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''"),
+            "status" => array("t" => "Status","c"=>"select","auto_db_type"=>"enum('New','Interested','Lost')","auto_db_def"=>"NOT NULL DEFAULT 'New'"),
+            "email" => array("t" => "Email","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''","auto_db_key"=>true),
+            "phone" => array("t" => "Phone","c"=>"text","auto_db_type"=>"varchar(50)","auto_db_def"=>"NOT NULL DEFAULT ''"),
+            "notes" => array("t" => "Notes","c"=>"textarea","auto_db_type"=>"text","auto_db_def"=>"NOT NULL  DEFAULT '' "),
+        ),
+        "def_lang" => $def_lang,
+        "langs" => $glangs,
+    ),
 		"fastaccess" => array(
         "table" => "fastaccess",
 				"auto_db"=>true,
