@@ -46,8 +46,9 @@ if (preg_match('#^wsc\.#i', $_SERVER['HTTP_HOST']))
 if (preg_match('#^fu\.#i', $_SERVER['HTTP_HOST'])) 
 	$sys_brand_name = "fu"; 
 if (preg_match('#^fs\.#i', $_SERVER['HTTP_HOST'])) 
-	$sys_brand_name = "fs"; 
-
+	$sys_brand_name = "fs";
+if (preg_match('#^mngr\.#i', $_SERVER['HTTP_HOST']))
+    $sys_brand_name = "mngr";
 //$sys_brand_name = "sla";
 
 
@@ -140,7 +141,7 @@ $sys_links_url="index.php";
 global $sys_use_slugs;
 $sys_use_slugs=true;
 
-$sys_user_auth=array('obj'=>"SEOX3_Team_Member__c",'tbl'=>'SEOX3_Team_Member__c','login'=>'Username__c','pass'=>'Password__c','perms'=>false,'deflogin'=>true);
+$sys_user_auth=array('obj'=>"mngr",'tbl'=>'mngr','login'=>'username','pass'=>'password','perms'=>false,'deflogin'=>true);
 
 global $sys_login_trace_map;
 $sys_login_trace_map=false;

@@ -76,7 +76,7 @@ $baseflat = $flat;
 global $sys_history_def_show,$sys_history_tracking;
 if($sys_history_tracking==true && ($sys_history_def_show==true || $this->gO('history_list')==true)){
 	$this->p->v['objs']['sys_change_history']=array('no_user_filter_allowed' => true);
-	$cV['view']['_l']['__sys_history_row']['_t']="Change History";
+	$cV['view']['_l']['__sys_history_row']['_t']="System info ";
 	$cV['view']['_l']['__sys_history_row']['list']=array("sys_change_history"=>array("username","time","upd_fields","_queryWhere"=>"ct.obj='{$this->oname}' and ct.obj_id={id}","_sort"=>array('time'=>'desc')));
 }
 
@@ -124,6 +124,7 @@ foreach ($cV['view']['_l'] as $rows) {
     }
 
 		$preListTit="";
+
     if (isset($rows['_t'])) {
         $ttt = $rows['_t'];
         unset($rows['_t']);

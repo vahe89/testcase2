@@ -992,6 +992,7 @@ class DB_Obj
 		$j="";
 		$o="";
 		$cV=$this->gO("cV");
+
 		if(is_array($this->copts['sys_prios']))
 		{
 			$j=" left join {$this->p->db_prefix}sys_prios as sys_prios on (sys_prios.tbl='{$this->tbl}' and sys_prios.tid={$this->copts['sel_idFld']}) ";		
@@ -1130,6 +1131,7 @@ class DB_Obj
 
 			$cq = $this->queryRels() . " where ct.id={$this->curr_id} or ct.lid={$this->curr_id} group by ct.id order by ct.lid desc";
 			$cq = "select " . $this->queryFields() . " from {$this->tbl} ct $cq";
+
 			$this->db->query($cq,"{$this->db_res}_curr");
 
 
@@ -3506,12 +3508,14 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 			$ctls = $fn;
 
 		$btns = array();
+
 		foreach ($ctls as $ck=>$cv) {
 			if(is_array($cv))
 				$btns[] = $this->drawActBtn("list_ctl_custom", $row, array("echo" => false,'__acts_custom'=>$cv));
-			else if($cv!='i')
+			else if($cv!='i' && $cv !='t')
 				$btns[] = $this->drawActBtn("list_ctl_{$cv}", $row, array("echo" => false));
 		}
+
 		return implode("&nbsp;", $btns);
 	}
 	function drawActBtn($type,$row,$iopts=array()){
@@ -3580,6 +3584,24 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 				}
 			}
 			break;
+
+            case "list_ctl_t":
+
+                $ret="<form action='".aurl('/')."' method='POST'><input type='hidden' name='a' value='p_adb'>";
+                $ret.="<input type='hidden' name='redirect_url' value='".($ru!=false?$ru:aurl("/{$this->obj_slug}"))."'>";
+
+                $ret.="<input type='hidden' name='".$this->_secureFormNames("multi_row_share[act_d_{$this->oname}]")."' value='_'>";
+				$ret.="<input id='hiddenIds' type='hidden' name='".$this->_secureFormNames('multi_row_share[data][ret.w.mngrids]')."'value=''/>";
+                $ret.="<a onclick=\"if(confirm('You sure you want terminate selected records ?')){terminate();}else{return false;}\" class='btn btn-mini dbo_add_new {$bclass}' href='$href'>Terminate</a>";
+                $ret.="</form>";
+				$ret .= "<script>function terminate(){if($('._idc_items:checked').length == 0){alert('Please select at least 1 item!')}";
+				$ret .="else{";
+				$ret .="var arr = []; $.each($('._idc_items:checked'), function( index, value ){
+  							arr.push($(value).val());
+					}); $('#hiddenIds').val(JSON.stringify(arr));";
+				$ret.="jQuery(this).parents('form').get(0).submit();return false;}";
+				$ret.="}</script>";
+                break;
 		}
 
 		if($this->copts['echo'])

@@ -123,6 +123,7 @@ if (isset($list['_extSort']) && is_array($list['_extSort'])) {
     }
 }
 unset($list['_extSort']);
+
 if(isset($list['_customClass'])){
 		$listOpts['_customClass']=$list['_customClass'];
 	unset($list['_customClass']);
@@ -199,6 +200,7 @@ if($_ajaxList==true){
 					echo $colsF['v']."&nbsp;";
 
 				$tblBtns=$this->p->draw_tbl_buttons($linkBtns, $tblCode, $this->oname);
+
 				if($tblBtns['h']!="")
 					echo $tblBtns['h']."&nbsp;";
 				$bCont = false;
@@ -212,7 +214,11 @@ if($_ajaxList==true){
 						if($bCont)
 							echo "<br>";
 				}
-
+        if (isset($cV['acts']) && is_array($cV['acts']) && array_search("t", $cV['acts']) !== false) {
+            echo $this->drawActBtn("list_ctl_t",false,array('_drawBtnClass'=>"dbo_top"));
+            if($bCont)
+                echo "<br>";
+        }
 				if($tblBtns['v']!=""){
 					echo $tblBtns['v'];
 				}
@@ -328,6 +334,7 @@ if($_ajaxList==true){
             echo "</tr></thead>";
         }
         echo "<tbody>";
+
 				//echo "<tr><td colspan='".count($cV['list'])."'>Loading data....</td></tr>";
 				if($_ajaxList==false){
 					$_REQUEST['tcode']=$tblCode;
@@ -447,8 +454,16 @@ if($_ajaxList==true){
 
 								<?php	} ?> 
                 "fnRowCallback": function (row, data, iDisp) {
-//							jQuery(row).find("td").each(function(){alert(jQuery(this).css("width"));});
+if($(row).hasClass('yellow_circle')){
+    $(row).find('td.dbo_cls_td_status').prepend('<span class="ui-icon ui-icon-bullet" style="display:inline-block;background-color:yellow"></span>');
+}else if($(row).hasClass('green_mark')){
+    $(row).find('td.dbo_cls_td_status').prepend('<span class="ui-icon ui-icon-circle-check" style="display:inline-block;background-color:green"></span>');
+}else if($(row).hasClass('red_cross')){
+    $(row).find('td.dbo_cls_td_status').prepend('<span class="ui-icon ui-icon-circle-close" style="display:inline-block;background-color:red"></span>');
+}
+
                     <?php
+
                     if(is_array($rColors)){
 											$fAr=array();
                         foreach($rColors as $fn=>$v){

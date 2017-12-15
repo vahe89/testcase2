@@ -161,8 +161,10 @@ class Admin
 			/**
 			 * @var $o db_obj
 			 */
+
 			if (is_array($o->rels)) {
 				foreach ($o->rels as $rf => $rv) {
+
 					if (isset($rv['obj']) && is_object($this->t[$rv['obj']])) {
 						$o->rels[$rf]['_dbo'] = $this->t[$rv['obj']];
 						if (!isset($rv['tbl']))
@@ -215,6 +217,7 @@ class Admin
 		$cfg['virt']=$data;
 		$cfg['langs']=$this->langs;
 		$this->t[$name]=new DB_Obj($this->db,$name,$cfg,$this->def_lang,$this);
+
 		return $this->t[$name];			
 		}
 		return false;
@@ -1001,8 +1004,10 @@ class Admin
 				}
 
 			}
+
 			$this->db->query("select * from {$this->db_prefix}{$this->u['tbl']} where {$this->u['login']} LIKE '{$_REQUEST['login']}'");
 			$u=$this->db->next();
+
 			if(is_array($u) && strtolower($u[$this->u['login']])==strtolower($_REQUEST['login']) && $u[$this->u['pass']]==$_REQUEST['pass']){
 				if($this->selUserView($u)){
 
@@ -1030,113 +1035,118 @@ class Admin
 		}
 
 		function selUserView($u){
+
 			$defv=false;
 			if(!is_array($this->vs))
 				return false;
-			foreach($this->vs as $vn=>$v){
-				$fnd=true;
-				if(isset($v['sel_on']['_def_view']) && $v['sel_on']['_def_view']==true){
-					$defv=$vn;
-				}
-				if(!isset($v['sel_on']) || !is_array($v['sel_on']))
-					continue;
-				foreach($v['sel_on'] as $fn=>$fv){
-					if ((strpos($fn, '_regexp') === 0) && is_array($fv)) {
-						foreach($fv as $rfn=>$rfv){
-							//var_dump($rfn,$rfv,$u[$rfn],"<hr>");
-							if(!isset($u[$rfn]) || !preg_match($rfv,$u[$rfn])){
-								$fnd=false;
-								break;
-							}
-						}
-					} else if ((strpos($fn, '_cond') === 0)) {
-						foreach ($fv as $rfn => $rfv) {
-							if ($rfn !== $rfv) {
-								$fnd = false;
-								break;
-							}
-						}
-					}
-					else if(!isset($u[$fn]) || $u[$fn]!=$fv){
-						$fnd=false;
-						break;
-					}
-		
-				}
-//							var_dump($vn,$fnd,$u,"<hr>");
-				if($fnd==true){
-					$this->set("vname",$vn);
-					return true;
-				}
 
-			}
-			if($defv!=false){
-				$this->set("vname",$defv);
-				return true;
-			}
+
+			foreach($this->vs as $vn=>$v) {
+
+                    $fnd = true;
+                    if (isset($v['sel_on']['_def_view']) && $v['sel_on']['_def_view'] == true) {
+                        $defv = $vn;
+                    }
+                    if (!isset($v['sel_on']) || !is_array($v['sel_on']))
+                        continue;
+                    foreach ($v['sel_on'] as $fn => $fv) {
+
+                        if ((strpos($fn, '_regexp') === 0) && is_array($fv)) {
+
+                            foreach ($fv as $rfn => $rfv) {
+                                //var_dump($rfn,$rfv,$u[$rfn],"<hr>");
+                                if (!isset($u[$rfn]) || !preg_match($rfv, $u[$rfn])) {
+                                    $fnd = false;
+                                    break;
+                                }
+                            }
+                        } else if ((strpos($fn, '_cond') === 0)) {
+
+                            foreach ($fv as $rfn => $rfv) {
+                                if ($rfn !== $rfv) {
+                                    $fnd = false;
+                                    break;
+                                }
+                            }
+                        } else if (!isset($u[$fn]) || $u[$fn] != $fv) {
+                            $fnd = false;
+                            break;
+                        }
+
+                    }
+//							var_dump($vn,$fnd,$u,"<hr>");
+                    if ($fnd == true) {
+                        $this->set("vname", $vn);
+                        return true;
+                    }
+
+
+                if ($defv != false) {
+                    $this->set("vname", $defv);
+                    return true;
+                }
 //						die('ERR:'.$vn);
-			return false;
+                return false;
+            }
 		}
 
-		function deflogin(){
-			if($this->isLogged || $this->isAdmin)
-				return false;
+		function deflogin()
+        {
+            if ($this->isLogged || $this->isAdmin)
+                return false;
 
-			if($this->getConfig("admin_login")!="" && $this->getConfig("admin_pass")!="" && $this->getConfig("admin_login")==$_REQUEST['login'] && $this->getConfig("admin_pass")==$_REQUEST['pass'])
-			{
-				$this->set('isAdmin',true);
-				$this->set('isLogged', true);
-				$this->set('rfull',true);
-				$this->set('access',array("all"));
-				$this->set('superAdmin',true);
-				$this->set('userId',0);
-				$this->set('userCreds',array("ulogin"=>"Admin",'LocalAdmin'=>'Admin','uname'=>'LocalAdmin'));
+            if ($this->getConfig("admin_login") != "" && $this->getConfig("admin_pass") != "" && $this->getConfig("admin_login") == $_REQUEST['login'] && $this->getConfig("admin_pass") == $_REQUEST['pass']) {
+                $this->set('isAdmin', true);
+                $this->set('isLogged', true);
+                $this->set('rfull', true);
+                $this->set('access', array("all"));
+                $this->set('superAdmin', true);
+                $this->set('userId', 0);
+                $this->set('userCreds', array("ulogin" => "Admin", 'LocalAdmin' => 'Admin', 'uname' => 'LocalAdmin'));
 
-				return "admin";
+                return "admin";
 
-			}
+            }
 
-			if($_REQUEST['login']!=false && $this->getConfig("locallogin_{$_REQUEST['login']}")!="" && $_REQUEST['pass']!=false && $this->getConfig("locallogin_{$_REQUEST['login']}")==$_REQUEST['pass'])
-			{
-				$this->set('isAdmin',true);
-				$this->set('isLogged', true);
-				$this->set('rfull',true);
-				$this->set('access',array("all"));
-				$this->set('superAdmin',true);
-				$this->set('userId',0);
-				$this->set('userCreds',array("ulogin"=>$_REQUEST['login'],'LocalAdmin'=>$_REQUEST['login'],'uname'=>$_REQUEST['login']));
+            if ($_REQUEST['login'] != false && $this->getConfig("locallogin_{$_REQUEST['login']}") != "" && $_REQUEST['pass'] != false && $this->getConfig("locallogin_{$_REQUEST['login']}") == $_REQUEST['pass']) {
+                $this->set('isAdmin', true);
+                $this->set('isLogged', true);
+                $this->set('rfull', true);
+                $this->set('access', array("all"));
+                $this->set('superAdmin', true);
+                $this->set('userId', 0);
+                $this->set('userCreds', array("ulogin" => $_REQUEST['login'], 'LocalAdmin' => $_REQUEST['login'], 'uname' => $_REQUEST['login']));
 
-				return "admin";
+                return "admin";
 
-			}
-			if($this->getConfig("owner_login")!="" && $this->getConfig("owner_pass")!="" && $this->getConfig("owner_login")==$_REQUEST['login'] && $this->getConfig("owner_pass")==$_REQUEST['pass'])
-			{
-				$this->set('isLogged',true);
-				header("Location: ../index.php");
-				return true;
+            }
+            if ($this->getConfig("owner_login") != "" && $this->getConfig("owner_pass") != "" && $this->getConfig("owner_login") == $_REQUEST['login'] && $this->getConfig("owner_pass") == $_REQUEST['pass']) {
+                $this->set('isLogged', true);
+                header("Location: ../index.php");
+                return true;
 
-			}
-			$this->db->query("select * from {$this->db_prefix}users where ulogin='{$_REQUEST['login']}'");
-			$u=$this->db->next();
-			if(is_array($u) && $u['ulogin']==$_REQUEST['login'] && $u['upass']==$_REQUEST['pass'] && $u['enabled']=true){
-				$acc=array();
-				$this->db->query("select a.aid as aid from{$this->db_prefix} users_access a left join {$this->db_prefix}sys_m2m m on 
+            }
+            $this->db->query("select * from {$this->db_prefix}users where ulogin='{$_REQUEST['login']}'");
+            $u = $this->db->next();
+            if (is_array($u) && $u['ulogin'] == $_REQUEST['login'] && $u['upass'] == $_REQUEST['pass'] && $u['enabled'] = true) {
+                $acc = array();
+                $this->db->query("select a.aid as aid from{$this->db_prefix} users_access a left join {$this->db_prefix}sys_m2m m on 
 						(m.mtbl='users' and m.stbl='users_access' and m.mid={$u['id']} and m.sid=a.id) where m.mid={$u['id']}");
-				while($ar=$this->db->next())
-					$acc[]=$ar['aid'];
+                while ($ar = $this->db->next())
+                    $acc[] = $ar['aid'];
 
-				$this->set('access',$acc);
-				$this->set('isAdmin',true);
-				$this->set('rfull',true);
-				$this->set('userId',$u['id']);
-				$this->set('userCreds',$u);
+                $this->set('access', $acc);
+                $this->set('isAdmin', true);
+                $this->set('rfull', true);
+                $this->set('userId', $u['id']);
+                $this->set('userCreds', $u);
 
-				return "admin";
+                return "admin";
 
-			}
+            }
 
-			//		die($this->db->getLastError());
-			return false;
+            //		die($this->db->getLastError());
+            return false;
 
 		}
 
@@ -1317,6 +1327,7 @@ class Admin
 		}
 
 		function adb($ireq,$_sync=false){
+          //  echo"<pre>";print_r($_REQUEST);die;
 			if(!$this->isAdmin && !$this->isLogged)
 				return false;
 

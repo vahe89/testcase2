@@ -174,6 +174,10 @@ $dbobjs = array(
         ),
         "def_lang" => $def_lang,
         "langs" => $glangs,
+//        "rels"=>array(
+//            "mngrid"=>array("obj"=>"mngr","fld"=>"id","on"=>"mngrid"),
+//
+//        ),
     ),
 		"fastaccess" => array(
         "table" => "fastaccess",
@@ -257,7 +261,7 @@ $dbobjs["log_Message_Campaign__c"]['table']="log_Message_Campaign__c";
 $dbobjs["log_Message_Campaign__c"]["sf_table"]=false;
 $dbobjs["log_Message_Campaign__c"]["auto_db"]=true;
 
-
+$dbobjs["log_Message_Queue__c"]["sf_table"]=false;
 $dbobjs["Message_Campaign__c"]['fctrls']['Status__c']['auto_db_key']=true;
 
 ?>

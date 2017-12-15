@@ -23,7 +23,7 @@ $ifc = $this->fctrls;
 
                 <input type = "button" value = "Back" onclick = "location.href='<?php echo aurl("/".$this->obj_slug);?>';"/>
 
-<?php if (isset($cV['acts']) && is_array($cV['acts']) && in_array("u", $cV['acts'])) { 
+<?php  if (isset($cV['acts']) && is_array($cV['acts']) && in_array("u", $cV['acts'])) {
 	$eok=true;
 	if (isset($cV['edit']['onVal']) && is_array($cV['edit']['onVal']) && count($cV['edit']['onVal'])>0){
 		foreach($cV['edit']['onVal'] as $fn=>$fv){

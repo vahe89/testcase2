@@ -21,12 +21,17 @@ if(isset($_SERVER['argv'][1]) && strtolower($_SERVER['argv'][1])=='run')
 
 
 foreach($dbobjs as $on=>$ov){
+
+
+
 	if (!(isset($ov['sf_table']) && $ov['sf_table'] != false) && !(isset($ov['auto_db']) && $ov['auto_db'] != false))
 		continue;
 
 	echo "\n\n### {$ov['table']} ###################\n";
 	$ins=true;
+
 	$res=mysql_query("describe `{$ov['table']}`");
+
 	$dbflds=array();
 	if($res!=false){
 		$ins=false;
@@ -52,6 +57,7 @@ foreach($dbobjs as $on=>$ov){
 	$tbKeys=array();
 	$key_flag=false;
 	foreach($ov['fctrls'] as $fn=>$fv){
+
 		$nf=false;
 		$nft=false;
 		if(isset($fv['sfdata']['uniq']) && $fv['sfdata']['uniq']==true)
@@ -67,7 +73,7 @@ foreach($dbobjs as $on=>$ov){
 		
 		if(strtolower($fn)=="sf_id")
 			$tbKeys[$fn]=array("t"=>"UNIQUE INDEX");
-		
+
 		switch($fv['sfdata']['st']){
 		case 'tns:ID':
 			if((isset($fv['sfdata']['sfid']) && $fv['sfdata']['sfid']==true) || !is_array($ov['rels'][$fn])){
@@ -150,10 +156,14 @@ foreach($dbobjs as $on=>$ov){
 
 		if($ins){
 			$ffs[]="`$fn` $nf $nft";
+
 			if(is_array($ov['rels'][$fn])){
 				$ro=false;
+
 				if(isset($ov['rels'][$fn]['obj']) && isset($dbobjs[$ov['rels'][$fn]['obj']]))
 					$ro=$dbobjs[$ov['rels'][$fn]['obj']];
+
+
 				if(is_array($ro) && isset($ro['sf_table']) && $ro['sf_table']==true){
 					$ffs[]="`{$fn}_id` VARCHAR(50) NOT NULL DEFAULT ''";
 					$ffs[]="`{$fn}_slug` VARCHAR(50) NOT NULL DEFAULT ''";
@@ -164,6 +174,7 @@ foreach($dbobjs as $on=>$ov){
 					$tbKeys["{$fn}_slug"]=array("t"=>"INDEX");
 				}
 			}
+
 				
 		}
 		else{
@@ -214,7 +225,7 @@ foreach($dbobjs as $on=>$ov){
 					unset($dbflds[$ttfn]);
 
 				$fn=$rrfn;
-			}else if(false && is_array($ov['rels'][$fn])){
+			}else if( is_array($ov['rels'][$fn])){
 				$ro=false;
 				if(isset($ov['rels'][$fn]['obj']) && isset($dbobjs[$ov['rels'][$fn]['obj']]))
 					$ro=$dbobjs[$ov['rels'][$fn]['obj']];

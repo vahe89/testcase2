@@ -549,7 +549,34 @@ class User extends Admin
 		}
 		return true;
 	}
+function do_terminate(){
+    if(!$this->isLogged)
+        return false;
 
+    if(isset($_REQUEST['_idc_referer']) && is_object($this->t[$_REQUEST['_idc_referer']]) && isset($_REQUEST['_idc_checked']) && $_REQUEST['_idc_checked']!=false){
+        $o=$this->t[$_REQUEST['_idc_referer']];
+        $uid=md5(microtime().mt_rand(0,99999));
+        $this->db->query($q="update $o->oname set status='Terminated' where id in (".$this->db->escape($_REQUEST['_idc_checked']).")",'dlr');
+        if($_REQUEST['_idc_referer']=='mngr'){
+            $this->setMsg(" Success: Status Updated.");
+            header("Location: ".aurl("/mngr"));
+            die();
+        }else{
+            $this->setMsg("ERROR: This object not yet supported.");
+            header("Location: ".aurl("/mngr"));
+            return false;
+
+        }
+    }else if(isset($_REQUEST['cid']) && isset($_REQUEST['slug_req'])&& $_REQUEST['slug_req']=='terminate'){
+
+        $this->db->query($q="update $o->oname set status='Terminated' where id = (".$this->db->escape($_REQUEST['cid']).")",'dlr');
+        $this->setMsg("Success: Status Updated.");
+        header("Location: ".aurl("/mngr"));
+        die();
+
+    }
+    return true;
+}
 	function do_start_dialer_old(){
 		if(!$this->isLogged)
 			return false;
@@ -654,18 +681,7 @@ class User extends Admin
 		$this->LookAtVar("emails_imp_exp",true,true,true);
 		return true;
 	}
-//    function do_mngr(){
-//        if(!$this->isLogged)
-//            return false;
-//        $this->LookAtVar("emails_imp_exp",true,true,true);
-//        return true;
-//    }
-    function do_cls(){
-        if(!$this->isLogged)
-            return false;
-        $this->LookAtVar("emails_imp_exp",true,true,true);
-        return true;
-    }
+
 	function set_missed_callbacks(){
 		$q="select * from SEOX3_Client__c where Next_Call_Back__c<date_sub(NOW(),interval 2 hour)";
 		while($this->db->qnext($q,"MCBD")){
