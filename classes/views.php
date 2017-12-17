@@ -140,7 +140,7 @@ $objviews = array(
             //"Email export" => array("_url" => aurl("/mails_import_export"), "_html" => "<i class='icon-briefcase'></i> Emails Export"),
            // "Managers" => array("_obj" => "mngr","_url" => aurl("/mngr"), "_html" => "<i class='icon-briefcase'></i> Managers"),
             "Client" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Clients"),
-            "Pipe" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Pipe"),
+            "Pipe" => array("_url" => aurl("/pipe"), "_html" => "<i class='icon-briefcase'></i> Pipe"),
             "Profile" => array("_url" => aurl("/mngr/{$_SESSION['class_admin']['curUsrId']}/e"), "_html" => "<i class='icon-briefcase'></i> Profile"),
         ),
         "objs"=>array(

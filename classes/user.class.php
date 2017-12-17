@@ -79,6 +79,54 @@ class User extends Admin
 		return true;
 	}
 
+function do_pipe(){
+    if(!$this->isLogged)
+        return false;
+    	if(!isset($_REQUEST['rid'])){
+    		$rid = 0;
+            $this->db->query($q="select SQL_CALC_FOUND_ROWS id,status from cls where mngrid={$this->curUsrId} and status='New'  order by id asc limit 1","nclnt");
+            $cc=$this->db->getRow("SELECT FOUND_ROWS() as cnt");
+
+            $Rid=$this->db->getCol("id","nclnt");
+
+            header("Location: ".aurl("/pipe/$Rid"));die();
+           }elseif(($_REQUEST['rid'] > 0) && isset($_REQUEST['s']) && (($_REQUEST['s']==1) || ($_REQUEST['s'] ==2)) ){
+           	//uodate pipe, set correct status
+			//get next pipe and redirect
+			if($_REQUEST['s']== 1){
+                $st = 'Interested';
+			}elseif($_REQUEST['s'] == 2){
+				$st = 'Lost';
+			}else{
+                header("Location: ".aurl("/pipe"));die();
+			}
+            $this->db->query($q="update cls set status='{$st}' where id ={$_REQUEST['rid']} ",'dlr');
+            $this->db->query($q="select SQL_CALC_FOUND_ROWS id,status from cls where mngrid={$this->curUsrId} and status='New'  order by id asc limit 1","nclnt");
+            $cc=$this->db->getRow("SELECT FOUND_ROWS() as cnt");
+
+            $Rid=$this->db->getCol("id","nclnt");
+
+            header("Location: ".aurl("/pipe/$Rid"));die();
+
+		}else{
+            $this->db->query($q="select SQL_CALC_FOUND_ROWS id,status from cls where mngrid={$this->curUsrId} and status='New'  order by id asc limit 1","nclnt");
+            $cc=$this->db->getRow("SELECT FOUND_ROWS() as cnt");
+
+            $Rid=$this->db->getCol("id","nclnt");
+
+
+		}
+
+    //$oldest=$this->db->getRow($q="select CreatedDate from SEOX3_Client__c where Sales_Rep__c={$this->curUsrId} and Status__c!='Inactive' and Prospective_Stage__c='Initial Contact' order by CreatedDate asc limit 1");
+    $o=$this->t['cls'];
+//    if(!isset($_SESSION['new_pipe_start']) || ($_SESSION['new_pipe_start']==false && $cc['cnt']>0))
+//        $_SESSION['new_pipe_start']=$cc['cnt'];
+
+    //$this->t['cls']->showAdmin("custom_view_ajaxlist",array('ownHeader'=>true,'queryWhere'=>array("ct.id in ('".implode("','",$_SESSION['pipes_history'][$_REQUEST['p']])."')")));
+
+    $o->showAdmin("pipe",array('pipe_next'=>'new_pipe',"rContext"=>"_newpipe"));
+    return true;
+}
 
 	function do_new_pipe(){
 		if(!$this->isLogged)
@@ -102,7 +150,9 @@ class User extends Admin
 /*		if(!isset($_REQUEST['rid']) || $_REQUEST['rid']!=$Rid){
 			header("Location: ".aurl("/new_pipe/$Rid"));die();
 		}*/
-		$o->showAdmin("new_pipe",array('left_cnt'=>$cc['cnt'],'sort_n'=>'new_pipe_ord','pipe_next'=>'new_pipe','oldest'=>$oldest['CreatedDate'],"rContext"=>"_newpipe"));
+        $this->t['SEOX3_Client__c']->showAdmin("custom_view_ajaxlist",array('ownHeader'=>true,'queryWhere'=>array("ct.id in ('".implode("','",$_SESSION['pipes_history'][$_REQUEST['p']])."')")));
+
+		//$o->showAdmin("new_pipe",array('left_cnt'=>$cc['cnt'],'sort_n'=>'new_pipe_ord','pipe_next'=>'new_pipe','oldest'=>$oldest['CreatedDate'],"rContext"=>"_newpipe"));
 		return true;		
 	}
 
