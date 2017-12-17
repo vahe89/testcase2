@@ -140,20 +140,7 @@ $this->copts['cV']['edit']['_l']['r1']['c2']=array_merge(array('CreatedDate'),$t
             </div>
         </div>
 
-        <div class='disc_psd res_hide'>
 
-            <div class='lost_res'>
-                <br>
-                <select name='lost_res'>
-                    <option value=''>--Select Lost Reason--</option>
-                    <?php
-                    foreach($this->p->t['SEOX3_Client__c']->fctrls['Lost_Reason__c']['opts'] as $o)
-                        echo "<option value='$o'>$o</option>";
-                    ?>
-                </select>
-            </div>
-
-        </div>
 
 
 
@@ -172,6 +159,18 @@ $this->copts['cV']['edit']['_l']['r1']['c2']=array_merge(array('CreatedDate'),$t
     </form>
 
 <?php $this->doInc("dbo_custom_view_readonly"); ?>
+<center>
+    <a  class='btn btn-primary' href="<?php echo aurl("/{$this->obj_slug}/{$this->cD[$this->slug_field]}/e");?>">Edit</a> &nbsp;&nbsp;
+
+
+    <a  class='btn btn-primary' href="<?php echo aurl("/pipe/{$this->cD[$this->slug_field]}?s=1");?>">Interested</a> &nbsp;&nbsp;
+    <a  class='btn btn-primary' href="<?php echo aurl("/pipe/{$this->cD[$this->slug_field]}?s=2");?>">Lost</a> &nbsp;
+    <a  class='btn btn-primary' href="<?php echo aurl("/{$this->obj_slug}/{$this->cD[$this->slug_field]}");?>">View</a> &nbsp;
+
+    <br>
+    <br>
+
+</center>
 
     <script type='text/javascript'>
         msgok={e_body:false,s_body:false};
