@@ -2348,7 +2348,7 @@ else if((isset($urla['_idc_post']) && $urla['_idc_post']!=false) || (isset($urla
 
 			$o = $this->t[$oname];
 			$reta = array('v'=>"",'h'=>'','hu'=>false);
-
+            var_dump($opts);die;
 			foreach ($colFilters as $k => $v) {
 				$ret="";
 				$col = $v;

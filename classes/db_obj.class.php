@@ -2783,6 +2783,7 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 	function dCC($fn,$l=false,$iopts=array())
 	{
 		$iopts['echo']=false;
+
 		return $this->drawCtrl($fn,$l,$iopts);
 	}
 	function dH($l=false,$iopts=array())
@@ -2916,6 +2917,7 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 
 		$fin=$this->in($fn,"c",$l);
 		$fiv=$this->iv($fn,$l);
+
 		if(isset($this->fctrls[$fn]['editFormatVal']) && $this->fctrls[$fn]['editFormatVal']==true)
 			$fiv=$this->format_val($fn,$fiv);
 
@@ -2951,10 +2953,18 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 
 		switch($this->fctrls[$fn]['c']){
 		case "url": 
-		case "text": 
-			$ret="<input type='text' id='".$this->hID("{$l}_{$fn}_form_ctrl")."' name=\"$fin\" value=\"$fiv\" ".(isset($this->fctrls[$fn]['size'])?"size=\"{$this->fctrls[$fn]['size']}\"":"")." ".(isset($this->fctrls[$fn]['custHtml'])?$this->fctrls[$fn]['custHtml']:"").">";
+		case "text":
+
+            $user_permission = $_SESSION['class_admin']['vname'];
+
+            if(isset($this->fctrls[$fn]['rodata']) && is_array($this->fctrls[$fn]['rodata']) && in_array($user_permission,$this->fctrls[$fn]['rodata']) ){
+            	$read_only = 'readOnly';
+			}else{
+                $read_only = '';
+			}
+			$ret="<input type='text' {$read_only} id='".$this->hID("{$l}_{$fn}_form_ctrl")."' name=\"$fin\" value=\"$fiv\" ".(isset($this->fctrls[$fn]['size'])?"size=\"{$this->fctrls[$fn]['size']}\"":"")." ".(isset($this->fctrls[$fn]['custHtml'])?$this->fctrls[$fn]['custHtml']:"").">";
 			break; 
-		case "string": 
+		case "string":
 
 			if(isset($this->fctrls[$fn]['opts']) && is_array($this->fctrls[$fn]['opts']) && isset($this->fctrls[$fn]['opts'][$fiv]))
 				$fiv=$this->fctrls[$fn]['opts'][$fiv];
@@ -3044,6 +3054,7 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 
 			$relcase=false;
 //			var_dump($this->fctrls[$fn]);die;
+
 			if(isset($this->fctrls[$fn]['opts']) && is_array($this->fctrls[$fn]['opts'])){
 				$fiv=$this->iv("{$fn}_opt_val",$l,false);				
 
@@ -3231,6 +3242,7 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 				}
 			switch($this->fctrls[$fn]['c']){
 				case "string":
+
 					if(isset($this->fctrls[$fn]['opts']) && is_array($this->fctrls[$fn]['opts']) && isset($this->fctrls[$fn]['opts'][$fiv]))
 						$ret=$this->fctrls[$fn]['opts'][$fiv];
 					else if(isset($this->fctrls[$fn]['yn'][$fiv]))

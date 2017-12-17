@@ -14,6 +14,9 @@ $_sfl__d_FU_User__c_Client['row13']['col0']['Collections_Status__c']["showLogic"
 $_sfl__d_FU_Creditor__c_Master['row0']['col1']['Inactive_Reason__c']["showLogic"]=array("Status__c"=>"Inactive");
 $_sfl__e_FU_Creditor__c_Master['row0']['col1']['Inactive_Reason__c']["showLogic"]=array("Status__c"=>"Inactive");
 
+if($_SESSION['class_admin']['vname'] == 'mngr'){
+    $customContoll = array('email'=>'readOnly');
+}
 $objviews = array(
     "adm" => array(
         "sel_on" => array(
@@ -138,9 +141,30 @@ $objviews = array(
            // "Managers" => array("_obj" => "mngr","_url" => aurl("/mngr"), "_html" => "<i class='icon-briefcase'></i> Managers"),
             "Client" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Clients"),
             "Pipe" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Pipe"),
-            "Profile" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Profile"),
+            "Profile" => array("_url" => aurl("/mngr/{$_SESSION['class_admin']['curUsrId']}/e"), "_html" => "<i class='icon-briefcase'></i> Profile"),
         ),
         "objs"=>array(
+            "mngr" => array(
+                'user_filter'=>array("ct.id"=>$_SESSION['class_admin']['curUsrId']),
+                "sLabel"=>"Manager",
+                "acts" => array("u"),
+                "edit"=>array(
+                    "_flat" => true,
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name","email"),
+
+                        '_t'=>'Main Info',
+                    ),
+                        "r2"=>array(
+                            "c1"=>array("username"),
+                            "c2"=>array("password"),
+                            '_t'=>'Credentials',
+
+                        )
+                    ),
+                ),
+
+            ),
             "cls" => array(
           //      'no_user_filter_allowed' => true,
                 'user_filter'=>array("ct.mngrid"=>$_SESSION['class_admin']['curUsrId']),
@@ -151,10 +175,7 @@ $objviews = array(
                     '_sort'=>array('name'=>'asc'),
                     "_customClass"=>'if(isset($this->cD["status"])){$t=$this->cD["status"];if($t=="New"){return "yellow_circle";}else if($t=="Interested"){return "green_mark";}else{return "red_cross";}}else{return "";}',
                 ),
-                "viewSel" => array(
-                    'email' => array('status' => 'Lost'),
 
-                ),
                 "edit"=>array(
                     "_flat" => true,
                     "_l"=>array("r1"=>array(

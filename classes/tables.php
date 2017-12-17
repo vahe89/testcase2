@@ -152,9 +152,9 @@ $dbobjs = array(
         "auto_db"=>true,
         "fctrls" => array(
 
-            "name" => array("t" => "Name","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''"),
+            "name" => array('rodata'=>array('mngr'),"t" => "Name","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''"),
             "status" => array('unsetOpts'=>array('Terminated'=>'Terminated'),'opts'=>array('New'=>'New','Active'=>'Active','Terminated'=>'Terminated'),"t" => "Status","c"=>"select","auto_db_type"=>"enum('New','Active','Terminated')","auto_db_def"=>"NOT NULL DEFAULT ''"),
-            "email" => array("t" => "Email","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''","auto_db_key"=>true),
+            "email" => array('rodata'=>array('mngr'), "t" => "Email","c"=>"text","auto_db_type"=>"varchar(100)","auto_db_def"=>"NOT NULL DEFAULT ''","auto_db_key"=>true),
             "username" => array("t" => "Username","c"=>"text","auto_db_type"=>"varchar(50)","auto_db_def"=>"NOT NULL DEFAULT ''","auto_db_key"=>true),
             "password" => array("t" => "Password","c"=>"password","auto_db_type"=>"varchar(250)","auto_db_def"=>"NOT NULL DEFAULT ''"),
 		),
