@@ -49,7 +49,9 @@ $ifc = $this->fctrls;
             </td >
         </tr >
 
-
+<?php
+//var_dump($this->cD);die;
+?>
 
 
         <?php $lastlang = end($this->langs);

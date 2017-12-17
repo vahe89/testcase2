@@ -470,6 +470,7 @@ class Admin
 
 	function getConfig($name)
 	{
+
 		$this->db->query("select val from {$this->db_prefix}sys_config where name='$name'");
 
 		if($row=$this->db->next())
@@ -986,14 +987,17 @@ class Admin
 				$lr=$this->deflogin();
 
 				if($this->isLogged || $this->isAdmin){
+
 					if($this->selUserView(array('localAdmin'=>true,'localLogin'=>$this->userCreds['ulogin']))){
-						$this->set('curUsr', array('Name' => $this->userCreds['uname']));
-						$this->set('curUsrId','0');
-						$this->set('curUsrSlug','Admin');
-						$this->set('usrSlugFld','LocalAdmin');
-						header("Location: ".aurl("/"));
-						die();
+                        $this->set('curUsr', array('Name' => $this->userCreds['uname']));
+                        $this->set('curUsrId','0');
+                        $this->set('curUsrSlug','Admin');
+                        $this->set('usrSlugFld','LocalAdmin');
+
+                        header("Location: ".aurl("/"));
+                        die();
 					}else{
+
 						return $lr;
 					}
 				}
@@ -1041,6 +1045,7 @@ class Admin
 				return false;
 
 
+
 			foreach($this->vs as $vn=>$v) {
 
                     $fnd = true;
@@ -1049,6 +1054,7 @@ class Admin
                     }
                     if (!isset($v['sel_on']) || !is_array($v['sel_on']))
                         continue;
+
                     foreach ($v['sel_on'] as $fn => $fv) {
 
                         if ((strpos($fn, '_regexp') === 0) && is_array($fv)) {
@@ -1074,7 +1080,8 @@ class Admin
                         }
 
                     }
-//							var_dump($vn,$fnd,$u,"<hr>");
+
+
                     if ($fnd == true) {
                         $this->set("vname", $vn);
                         return true;
@@ -1086,8 +1093,9 @@ class Admin
                     return true;
                 }
 //						die('ERR:'.$vn);
-                return false;
-            }
+
+            }die;
+            return false;
 		}
 
 		function deflogin()
@@ -1096,6 +1104,7 @@ class Admin
                 return false;
 
             if ($this->getConfig("admin_login") != "" && $this->getConfig("admin_pass") != "" && $this->getConfig("admin_login") == $_REQUEST['login'] && $this->getConfig("admin_pass") == $_REQUEST['pass']) {
+
                 $this->set('isAdmin', true);
                 $this->set('isLogged', true);
                 $this->set('rfull', true);
@@ -2376,6 +2385,7 @@ else if((isset($urla['_idc_post']) && $urla['_idc_post']!=false) || (isset($urla
 							unset($opts[$v]);
 					}
 					asort($opts);
+
 					foreach ($opts as $id => $v) {
 						$ret .= "<option " . ($cf == $id ? "selected='true'" : "") . " value='$id'>{$v}</option>";
 					}

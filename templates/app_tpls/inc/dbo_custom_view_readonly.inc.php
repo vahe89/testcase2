@@ -43,12 +43,17 @@ if(is_array($cV['view']['_l']))
 	if(isset($cV['viewSel']) && is_array($cV['viewSel'])){
 		foreach($cV['viewSel'] as $vn=>$va){
 			$sok = true;
+
 			foreach($va as $vfn=>$vfv){
+
 				if (!(isset($this->cD[$vfn]) && ($this->cD[$vfn] == $vfv))) {
+
 					$sok = false;
 					break;
 				}
 			}
+            $sok = false;
+
 			if (($sok == true) && is_array($cV['view'][$vn])) {
 				$_l=$cV['view'][$vn];
 				break;			
@@ -74,6 +79,7 @@ $baseflat = $flat;
 
 
 global $sys_history_def_show,$sys_history_tracking;
+
 if($sys_history_tracking==true && ($sys_history_def_show==true || $this->gO('history_list')==true)){
 	$this->p->v['objs']['sys_change_history']=array('no_user_filter_allowed' => true);
 	$cV['view']['_l']['__sys_history_row']['_t']="System info ";
@@ -304,6 +310,7 @@ foreach ($cV['view']['_l'] as $rows) {
 					$this->rendAddTags("rows.*.cols.*.tbl","<table class='dbo_fields_tbl dbo_fields_tbl_ro'>","</table>");
 						foreach ($cols as $fnkk => $fn) {
                 $this->fctrls = $ifc;
+
                 /*	 if($fnkk!=false && is_array($fn)){
                          if(!is_array($this->fctrls[$fnkk]))
                                  $this->fctrls[$fnkk]=array();
@@ -325,6 +332,7 @@ foreach ($cV['view']['_l'] as $rows) {
 
                 if ($this->cD[$fn] == false && isset($fc['hideEmpty']) && $fc['hideEmpty'] == true)
                     continue;
+
                 if (isset($fc['showLogic']) && is_array($fc['showLogic'])) {
                     $op = "and";
                     if (isset($fc['showLogic']['__op'])) {

@@ -640,6 +640,7 @@ class DB_Obj
 
 		if($trels){
 			foreach($trels as $rf=>$ra){
+
 				if (isset($ra['obj']) && is_object($this->p->t[$ra['obj']]) && $this->p->t[$ra['obj']]->gO('sf_table') == true) {
 					$ra['tbln'] = preg_replace("#__c$#", "__r", $rf);
 				}
@@ -653,9 +654,10 @@ class DB_Obj
 
 				$rtbls[$ra['tbln']]=$ra['tbl'];
 
+
 				if(isset($ra['to_flds']) &&  $ra['to_flds']!=false)
 					$this->addOpts(array("__queryFields"=>"{$ra['tbln']}.{$ra['fld']} as r_{$ra['to_flds']}"));
- 
+
 				if(is_array($ra['on'])){
 					$tton="";
 					$f=true;
@@ -682,6 +684,7 @@ class DB_Obj
 				}
 				else
 					$ret.=" {$ra['join']} {$ra['tbl']} as {$ra['tbln']} on {$ra['ctbl']}.{$rf}={$ra['tbln']}.{$ra['on']}";
+			//	var_dump(" {$ra['join']} {$ra['tbl']} as {$ra['tbln']} on {$ra['ctbl']}.{$rf}={$ra['tbln']}.{$ra['on']}");die;
 			}
 		}else{
 			$this->resetOpts();
@@ -1332,6 +1335,7 @@ class DB_Obj
 
 	function queryAll($iopts=array())
 	{
+
 		if(is_array($this->virt)){
 			$this->setCopts($iopts);
 			$ret=array();
@@ -1527,6 +1531,7 @@ $cq.=($this->copts['querySearchAll'] && $this->copts['queryWhere'] ? " and ( ".i
 						$row[$n]=date($v['f'],strtotime($row[$n]));
 }*/
 			$_sfRels = $this->gOAA('query_sfRels');
+
 			foreach($row as $n=>$v){
 				$relFn=str_replace("__x__", ".", $n);
 				if (in_array($relFn, $_sfRels)) {
@@ -2288,6 +2293,7 @@ return $ret;*/
 			ob_end_clean();
 
 }
+
 		if($this->copts['echo'])
 			echo $ttret;
 		else{
@@ -3032,10 +3038,12 @@ global $sys_def_date_format,$sys_def_time_format,$sys_def_datetime_format;
 			$preSel = "";
 			$aftSel = "";
 			$selCls = array();
+
 			if (isset($this->fctrls[$fn]['selDefTit']))
 				$sel_default = $this->fctrls[$fn]['selDefTit'];
 
 			$relcase=false;
+//			var_dump($this->fctrls[$fn]);die;
 			if(isset($this->fctrls[$fn]['opts']) && is_array($this->fctrls[$fn]['opts'])){
 				$fiv=$this->iv("{$fn}_opt_val",$l,false);				
 

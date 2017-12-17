@@ -15,12 +15,124 @@ $_sfl__d_FU_Creditor__c_Master['row0']['col1']['Inactive_Reason__c']["showLogic"
 $_sfl__e_FU_Creditor__c_Master['row0']['col1']['Inactive_Reason__c']["showLogic"]=array("Status__c"=>"Inactive");
 
 $objviews = array(
+    "adm" => array(
+        "sel_on" => array(
+            //"ulogin" => "Admin", 'LocalAdmin' => 'Admin', 'uname' => 'LocalAdmin'
+            "localLogin"=>'admin'
+        ),
+        "defpage" => array('type' => "obj", "obj" => "mngr"),
+        "menu" => array(
+            //"Email export" => array("_url" => aurl("/mails_import_export"), "_html" => "<i class='icon-briefcase'></i> Emails Export"),
+            "Managers" => array("_obj" => "mngr","_url" => aurl("/mngr"), "_html" => "<i class='icon-briefcase'></i> Managers"),
+            "Client" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Clients"),
+        ),
+        "objs"=>array(
+            "mngr" => array(
+                'no_user_filter_allowed' => true,
+                "sLabel"=>"Manager",
+                "acts" => array("u","d","v","i"),
+                "list" => array('_idc_','_acts_','name','status','email','username',
+                    "_link_buttons"=>array(
+                        array('_t'=>'Terminate','_url'=>aurl("/terminate"),'_idc_post'=>2,'_onTop' => true),
+                    )
+                ),
+
+                "edit"=>array(
+                    "_flat" => true,
+
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name"),
+                        "c2"=>array("email"),
+                        "c3"=>array("status"),
+                        '_t'=>'Main Info Fields',
+
+                    ),
+
+                        "r2"=>array(
+                            "c1"=>array("username"),
+                            "c2"=>array("password"),
+                            '_t'=>'Credentials Fields',
+
+                        )
+                    ),
+                ),
+                "view" => array(
+                    "_flat" => true,
+                    "_linkBtns"=>array(
+                        "Terminate"=>array('_url'=>aurl("/terminate?cid={id}")),
+                    ),
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name"),
+                        "c2"=>array("email"),
+                        "c3"=>array("status"),
+                        '_t'=>'Main Info ',
+                    ),
+
+                        "r2"=>array(
+                            "c1"=>array("username"),
+                            "c2"=>array("password"),
+                            '_t'=>'Credentials ',
+
+                        ),
+                        "r3"=>array(
+                            "c1"=>array("id"),
+                            '_t'=>'System Info ',
+
+                        ),
+                    ),
+                ),
+            ),
+            "cls" => array(
+                'no_user_filter_allowed' => true,
+                "sLabel"=>"Clients",
+                "acts" => array("u","d","v",'i'),
+                "list" => array('_acts_','name','mngrid','email','phone','status',
+                    "_customClass"=>'if(isset($this->cD["status"])){$t=$this->cD["status"];if($t=="New"){return "white";}elseif($t=="Interested"){return "light_green";}elseif($t=="Lost"){return "light_red"; }}else{return "";}',
+                    "_rowColors"=>array("background:#ffffff;"=>"jQuery(row).hasClass('white')","background:#90ee90;"=>"jQuery(row).hasClass('light_green')","background:#f24660;"=>"jQuery(row).hasClass('light_red')"),
+
+                ),
+                "edit"=>array(
+                    "_flat" => true,
+
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name","mngrid","address"),
+                        "c2"=>array("email","phone","status"),
+
+                        '_t'=>'Main Info',
+                    ),
+
+                        "r2"=>array(
+                            "c1"=>array("notes"),
+                            '_t'=>'Notes'
+                        )
+                    ),
+                ),
+                "view" => array(
+                    "_flat" => true,
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name","mngrid","address"),
+                        "c2"=>array("email","phone","status"),
+
+                        '_t'=>'Main Info',
+                    ),
+
+                        "r2"=>array(
+                            "c1"=>array("notes"),
+                            '_t'=>'Notes'
+                        )
+                    ),
+
+                ),
+            ),
+
+        ),
+    ),
     "mngr" => array(
         "sel_on" => array(
 
             "_cond1" => array("mngr" => "mngr"),
         ),
-        "defpage" => array('type' => "obj", "obj" => "mngr"),
+        "defpage" => array('type' => "obj", "obj" => "cls"),
         "menu" => array(
             //"Email export" => array("_url" => aurl("/mails_import_export"), "_html" => "<i class='icon-briefcase'></i> Emails Export"),
            // "Managers" => array("_obj" => "mngr","_url" => aurl("/mngr"), "_html" => "<i class='icon-briefcase'></i> Managers"),
@@ -39,19 +151,46 @@ $objviews = array(
                     '_sort'=>array('name'=>'asc'),
                     "_customClass"=>'if(isset($this->cD["status"])){$t=$this->cD["status"];if($t=="New"){return "yellow_circle";}else if($t=="Interested"){return "green_mark";}else{return "red_cross";}}else{return "";}',
                 ),
+                "viewSel" => array(
+                    'email' => array('status' => 'Lost'),
 
+                ),
                 "edit"=>array(
                     "_flat" => true,
-                    "_l"=>array("r1"=>array("c1"=>array("status","email","name","phone","address"))),
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name","phone"),
+                        "c2"=>array("status","address"),
+                        "c3"=>array("email"),
+                        '_t'=>'Main Info',
+                    ),
+
+                        "r2"=>array(
+                            "c1"=>array("notes"),
+                            '_t'=>'Notes'
+                        )
+                    ),
                 ),
                 "view" => array(
                     "_flat" => true,
-                    "_l"=>array("r1"=>array("c1"=>array("status","email","name","phone","address"))),
+                    "_l"=>array("r1"=>array(
+                        "c1"=>array("name","phone"),
+                        "c2"=>array("status","address"),
+                        "c3"=>array("email"),
+                        '_t'=>'Main Info',
+                    ),
+
+                        "r2"=>array(
+                            "c1"=>array("notes"),
+                            '_t'=>'Notes'
+                        )
+                    ),
                 ),
             ),
 
         ),
     ),
+
+
     "rclog" => array(
 			"sel_on" => array(
 					"localLogin"=>'rclog'
@@ -71,75 +210,6 @@ $objviews = array(
 			),
 
 
-    "adm" => array(
-			"sel_on" => array(
-					"localAdmin"=>true,"localLogin"=>'admin'
-          ),
-			"defpage" => array('type' => "obj", "obj" => "mngr"),
-			"menu" => array(
-				//"Email export" => array("_url" => aurl("/mails_import_export"), "_html" => "<i class='icon-briefcase'></i> Emails Export"),
-                "Managers" => array("_obj" => "mngr","_url" => aurl("/mngr"), "_html" => "<i class='icon-briefcase'></i> Managers"),
-                "Client" => array("_obj" => "cls","_url" => aurl("/cls"), "_html" => "<i class='icon-briefcase'></i> Clients"),
-				),
-        "objs"=>array(
-            "mngr" => array(
-                'no_user_filter_allowed' => true,
-                "sLabel"=>"Manager",
-				"tLabel"=>'Terminate',
-				"acts" => array("u","d","v"),
-                "list" => array('_idc_','_acts_','name','status','email','username',
-                    "_link_buttons"=>array(
-                        array('_t'=>'Terminate','_url'=>aurl("/terminate"),'_idc_post'=>2,'_onTop' => true),
-                       )
-                    ),
-                "edit"=>array(
-                    "_flat" => true,
-
-                 "_l"=>array("r1"=>array("c1"=>array("name","email","status","username","password"))),
-                ),
-                "view" => array(
-                    "_flat" => true,
-                    "_linkBtns"=>array(
-                        "Terminate"=>array('_url'=>aurl("/terminate?cid={id}")),
-                    ),
-                    "_l"=>array("r1"=>array(
-                        "c1"=>array("name"),
-                        "c2"=>array("email"),
-                        "c3"=>array("status"),
-                        '_t'=>'Main Info Fields',
-                        ),
-
-                        "r2"=>array(
-                            "c1"=>array("username"),
-                            "c2"=>array("password"),
-                            '_t'=>'Credentials Fields',
-
-                        )
-                    ),
-                ),
-            ),
-            "cls" => array(
-                'no_user_filter_allowed' => true,
-                "sLabel"=>"Clients",
-                "acts" => array("u","d","v"),
-                "list" => array('_acts_','name','mngrid','email','phone','status',
-                    "_customClass"=>'if(isset($this->cD["status"])){$t=$this->cD["status"];if($t=="New"){return "white";}elseif($t=="Interested"){return "light_green";}elseif($t=="Lost"){return "light_red"; }}else{return "";}',
-                    "_rowColors"=>array("background:#ffffff;"=>"jQuery(row).hasClass('white')","background:#90ee90;"=>"jQuery(row).hasClass('light_green')","background:#f24660;"=>"jQuery(row).hasClass('light_red')"),
-
-                ),
-                "edit"=>array(
-                    "_flat" => true,
-
-                    "_l"=>array("r1"=>array("c1"=>array("name","email","status","phone","address"))),
-                ),
-                "view" => array(
-                    "_flat" => true,
-                    "_l"=>array("r1"=>array("c1"=>array("name","email","status","phone","address"))),
-                ),
-            ),
-
-        ),
-			),
 
     "SLA" => array(
 			"sel_on" => array(
